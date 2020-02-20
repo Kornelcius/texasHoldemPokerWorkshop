@@ -7,7 +7,7 @@
 
 int main() {
     /* TASKS create:
-     * - PredictablePlayer class inheriting IPlayer
+     * - PredictablePlayer class inheriting IPlayer //DONE
      * - StandardGameModel class inheriting IGameModel, try to use IHandComparator class
      * - StandardDeckShuffler class inheriting IDeckShuffler
      * - ConsoleView class inheriting IViewClass
