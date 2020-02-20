@@ -7,15 +7,15 @@
 
 int main() {
     /* TASKS create:
-     * - PredictablePlayer class inheriting IPlayer
+     * - PredictablePlayer class inheriting IPlayer //DONE
      * - StandardGameModel class inheriting IGameModel, try to use IHandComparator class
-     * - StandardDeckShuffler class inheriting IDeckShuffler
-     * - ConsoleView class inheriting IViewClass
+     * - StandardDeckShuffler class inheriting IDeckShuffler //DONE
+     * - ConsoleView class inheriting IViewClass //Grzesiek
      * - fill inform*** methods in GameController marked as TODO
      *
      * other options, create:
      * - AIPlayer - class with Artifical inteligence
-     * - ConsolePlayer - class taking decisions from console
+     * - ConsolePlayer - class taking decisions from console //
      * - other view class
      * - other game model class, eg. NetworkGameModel
      */
