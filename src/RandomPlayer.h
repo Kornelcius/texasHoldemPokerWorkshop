@@ -1,20 +1,28 @@
 #pragma once
 
 #include "IPlayer.h"
+#include "IGameView.h"
+#include "Card.h"
+#include "Hand.h"
 
-using namespace texasHolderPoker;
+class RandomPlayer : public texasHolderPoker::IPlayer, public texasHolderPoker::IGameView {
 
-class RandomPlayer : IPlayer {
-    void onRoundStarted(int moneyCount, const Hand &hand) override;
+public: //from IPlayer
+    void onRoundStarted(int moneyCount, const texasHolderPoker::Hand &hand) override;
+    texasHolderPoker::Decision getDecision(int requiredMoney) override;
 
-    Decision getDecision(int requiredMoney) override;
+public: //from IGameView
+    void onPlayerDecision(int playerNumber, const texasHolderPoker::Decision &decision) override;
 
+    void onCardsShow(const std::vector<texasHolderPoker::Card> &showCards) override;
+
+    void onGameStart(const texasHolderPoker::GameSettings &gameSettings) override;
+
+    void onGameEnd(int winningPlayer) override;
+
+    void onRoundStart(const texasHolderPoker::RoundSetup &roundSetup) override;
+
+    void onRoundEnd(const texasHolderPoker::RoundResult &roundResult) override;
 };
 
-void RandomPlayer::onRoundStarted(int moneyCount, const Hand &hand) {
 
-}
-
-Decision RandomPlayer::getDecision(int requiredMoney) {
-    return Decision();
-}

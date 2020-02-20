@@ -115,7 +115,9 @@ void GameController::informPlayersAboutDrawnCards() const
 
 void GameController::informViewsAboutRoundResult(const RoundResult& roundResult) const
 {
-    // @TODO
+    for (const auto& n : views){
+
+    }
 }
 
 void GameController::informViewAboutPlayerDecision(const Decision& decision) const

@@ -2,11 +2,12 @@
 
 #include <GameController.h>
 #include <GameSettings.h>
+#include <PredictablePlayer.h>
+#include <RandomPlayer.h>
 
-int main()
-{
+int main() {
     /* TASKS create:
-     * - RandomPlayer class inheriting IPlayer
+     * - PredictablePlayer class inheriting IPlayer
      * - StandardGameModel class inheriting IGameModel, try to use IHandComparator class
      * - StandardDeckShuffler class inheriting IDeckShuffler
      * - ConsoleView class inheriting IViewClass
@@ -19,15 +20,26 @@ int main()
      * - other game model class, eg. NetworkGameModel
      */
 
-    // auto gameModel = std::make_unique<StandardGameModel>();
-    // texasHolderPoker::GameController gameController{std::move(gameModel)};
-    // auto consoleView = std::make_shared<ConsoleView>();
-    // gameController->addView(consoleView);
-    // gameController->addPlayer(std::make_shared<RandomPlayer>());
-    // gameController->addPlayer(std::make_shared<RandomPlayer>());
-    // gameController->addPlayer(std::make_shared<RandomPlayer>());
-    // texasHolderPoker::GameMoneyRules rules;
-    // gameController->startGame(rules);
+    auto gameModel = std::make_unique<StandardGameModel>();
+    texasHolderPoker::GameController gameController{std::move(gameModel)};
+    auto consoleView = std::make_shared<ConsoleView>();
+
+    auto player1 = std::make_shared<texasHolderPoker::PredictablePlayer>();
+    auto player2 = std::make_shared<RandomPlayer>();
+
+    gameController.addPlayer(player1);
+    gameController.addView(player1);
+
+    gameController.addPlayer(player2);
+    gameController.addView(player2);
+
+    gameController.addView(consoleView);
+    gameController.addPlayer(std::make_shared<texasHolderPoker::PredictablePlayer>());
+    gameController.addPlayer(std::make_shared<texasHolderPoker::PredictablePlayer>());
+    gameController.addPlayer(std::make_shared<texasHolderPoker::PredictablePlayer>());
+    texasHolderPoker::GameMoneyRules rules;
+    gameController.startGame(rules);
+
 
     return 0;
 }
