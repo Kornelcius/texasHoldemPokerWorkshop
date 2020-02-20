@@ -7,8 +7,6 @@ namespace texasHolderPoker
 
 struct Card;
 
-using PlayersCards = std::vector<Hand>;
-
 class IHandComparator
 {
 public:
@@ -17,7 +15,7 @@ public:
     /// \param playersCards players cards
     /// \param tableCards common cards shown on table
     /// \return number of winning player
-    int getWinningPlayer(const std::vector<PlayersCards>& playersCards,
+    int getWinningPlayer(const std::vector<Hand>& playersCards,
                          const std::vector<Card> tableCards) = 0;
 };
 
